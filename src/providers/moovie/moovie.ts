@@ -10,7 +10,7 @@ export class MoovieProvider {
   }
 
   getLatestMovies(){
-      return this.http.get(this.baseApiPath + "/movie/latest?api_key="+this.getApiKey());
+      return this.http.get(this.baseApiPath + "/movie/popular?api_key="+this.getApiKey());
   }
 
   getApiKey():string{

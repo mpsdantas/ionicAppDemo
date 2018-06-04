@@ -17,6 +17,7 @@ import { MoovieProvider } from '../../providers/moovie/moovie';
     ]
 })
 export class FeedPage {
+    lista_filmes: any;
     public objeto_feed = {
         titulo: "Marcus Paulo",
         data: "November 5, 1955",
@@ -35,7 +36,9 @@ export class FeedPage {
     ionViewDidLoad() {
         this.movieProvider.getLatestMovies().subscribe(
             data => {
-                console.log(data);
+                const response = (data as any);
+                const objeto_retorno = JSON.parse(response._body);
+                this.lista_filmes = objeto_retorno.results;
             }, error => {
                 console.log(error);
             }
